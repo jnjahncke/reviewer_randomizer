@@ -4,4 +4,4 @@ This script takes in a list of applicants, a list of reviewers, and the number o
 
 The `reviewer_randomizer_GoogleColab.py` script can be run from the command line but the script needs to be edited first to change the inputs since they are hard coded.
 
-To run the script from an editable jupyter notebook in your web browser use [this google colab link](https://colab.research.google.com/drive/17uKKnFAhS8MqKoNv1NC1AT_mjG3Ue4nh). Note that this is EDITABLE. If you break it, it's up to you to fix it. The original version is saved in this github - use that to fix the shared notebook.
+To run the script from an editable jupyter notebook in your web browser use [this google colab link](https://colab.research.google.com/drive/17uKKnFAhS8MqKoNv1NC1AT_mjG3Ue4nh). Note that this is EDITABLE. If you break it, it's up to you to fix it. The original version is [saved in this github](https://github.com/jnjahncke/reviewer_randomizer/blob/main/reviewer_randomizer_GoogleColab.ipynb) - use that to fix the shared notebook.
