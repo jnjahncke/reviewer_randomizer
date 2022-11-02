@@ -1,6 +1,9 @@
 # reviewer_randomizer
 
-This script takes in a list of applicants, a list of reviewers, and the number of people to be assigned to each applicant. Reviewers are then randomly assigned to the applicants. Reviewers can be either faculty or non-faculty ("trainees"). Only one non-faculty reviewer can be assigned to each applicant at maximum. Two output tables and one text file are saved: (1) a table of applicants followed by assigned reviewers and (2) a table of reviewers followed by assigned applicants and (3) text file of reviewers and their assigned applicants. *Output files all contain the same information in different formats.*
+This script takes in a list of applicants, a list of reviewers, and the number of people to be assigned to each applicant. Reviewers are then randomly assigned to the applicants. Reviewers can be either faculty or non-faculty ("trainees"). Only one non-faculty reviewer can be assigned to each applicant at maximum. Two output tables and one text file are saved: (1) a table of applicants followed by assigned reviewers and (2) a table of reviewers followed by assigned applicants and (3) text file of reviewers and their assigned applicants. *Output files all contain the same information in different formats.* 
+
+Example output files: [applicants_reviewers.csv](https://github.com/jnjahncke/reviewer_randomizer/blob/main/applicants_reviewers.csv), [reviewer_applicants.csv](https://github.com/jnjahncke/reviewer_randomizer/blob/main/reviewer_applicants.csv), [reviewer_applicants.txt](https://github.com/jnjahncke/reviewer_randomizer/blob/main/reviewer_applicants.txt)
+
 
 
 The `reviewer_randomizer_GoogleColab.py` script can be run from the command line but the script needs to be edited first to change the inputs since they are hard coded.
