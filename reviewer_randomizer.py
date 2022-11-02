@@ -58,7 +58,6 @@ assign_min = reviewer_num - remainder
 
 
 def assign_reviewer():
-    print("Here we go!")
     ## ---------------------------- ##
     ## Build up empty lists/dicts   ##
     ## ---------------------------- ##
@@ -105,7 +104,6 @@ def assign_reviewer():
     # trainees first
     i = 0
     for trainee in trainee_list:
-        print("Trainee...")
         rev_list = []
         if trainee in min_list:
             assign_num = min_num
@@ -128,7 +126,6 @@ def assign_reviewer():
     # faculty
     i = 0
     for faculty in faculty_list:
-        print("Faculty...")
         rev_list = []
         if faculty in min_list:
             assign_num = min_num
