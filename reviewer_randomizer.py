@@ -15,7 +15,7 @@ import re
 eyes = 3
 
 # Input list of reviewers. Need 3 quotation marks at beginning and end of list only. Each reviewer should be on a new line.
-reviewers = """Gary Westbrook   Faculty
+reviewers = """Gary   Faculty
 Tianyi   Faculty
 Kevin    Faculty
 Larry  Faculty
@@ -30,19 +30,19 @@ reviewers = reviewers.replace("\t", " ").split("\n")
 
 
 # Input list of applicants. Need 3 quotation marks at beginning and end of list only. Each reviewer should be on a new line.
-applicants = """A	B
-C	D
-E	F
-G	H
-I	J
-K	L
-M	N
-O	P
-Q	R
-S	T
-U	V
-W	X
-Y	Z"""
+applicants = """Yura	Kosmatka
+Jarl	Dunn
+Juli	Marshall
+Elicia	Moss
+Cillin	Jankovic
+Mahihkan	Alan
+Agata	Confortola
+Snezhana	Hadaway
+Ekwueme	Rake
+Deidra	Treacy
+Ambrosius	Eldred
+Ansgar	Karl
+Stanislava	Ivankov"""
 applicants = applicants.replace("\t", " ").split("\n")
 
 ## ---------------------------- ##
