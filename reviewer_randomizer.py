@@ -16,16 +16,16 @@ eyes = 3
 
 # Input list of reviewers. Need 3 quotation marks at beginning and end of list only. Each reviewer should be on a new line.
 reviewers = """Gary Westbrook   Faculty
-Tianyi  Mao  Faculty
-Kevin Wright    Faculty
-Larry Trussell  Faculty
-Henrique vonGersdorf    Faculty
-Eric Schnell    Faculty
-Kelly Monk  Faculty
-Yessica Santana Student
-Nina Luong  Student
-Jennifer Jahncke    Student
-Marissa Co  Postdoc"""
+Tianyi   Faculty
+Kevin    Faculty
+Larry  Faculty
+Henrique    Faculty
+Eric    Faculty
+Kelly  Faculty
+Yessica Student
+Nina  Student
+Jennifer    Student
+Marissa  Postdoc"""
 reviewers = reviewers.replace("\t", " ").split("\n")
 
 
@@ -115,7 +115,7 @@ def assign_reviewer():
             while temp in rev_list or applicant_counts[temp] != 0:
                 i += 1
                 temp = applicants[randrange(applicant_num)]
-                if i > applicant_num * len(trainee_list) * eyes * 10000:
+                if i > applicant_num * len(trainee_list) * eyes * 1000:
                    return(False) 
             rev_list.append(temp)
             applicant_counts[temp] += 1
@@ -137,7 +137,7 @@ def assign_reviewer():
             while temp in rev_list or applicant_counts[temp] == eyes:
                 i += 1
                 temp = applicants[randrange(applicant_num)]
-                if i > applicant_num * len(reviewer_list) * eyes * 10000:
+                if i > applicant_num * len(reviewer_list) * eyes * 1000:
                    return(False)
             rev_list.append(temp)
             applicant_counts[temp] += 1
