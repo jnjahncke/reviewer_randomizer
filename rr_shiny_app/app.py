@@ -14,12 +14,14 @@ import re
 ## ---------------------------- ##
 app_ui = ui.page_fixed(
     ui.h2("Reviewer Randomizer"),
-    ui.input_text_area("eyes","Number Reviewers per Applicant:",3,rows=1),
-    ui.input_text_area("reviewers","Reviewers:","""Gary Westrbook\tFaculty
-Jennifer Jahncke\tStudent""",rows=20),
-    ui.input_text_area("applicants","Applicants:","""Beyonce Knowles
+    ui.row(
+        ui.column(5,ui.input_text_area("reviewers","Reviewers:","""Kevin Wright\tFaculty
+Kelly Monk\tFaculty
+Jennifer Jahncke\tStudent""",rows=20)),
+        ui.column(5, ui.input_text_area("applicants","Applicants:","""Beyonce Knowles
 Taylor Swift
-Ryan Renolds""",rows=20),
+Ryan Reynolds""",rows=20)),
+        ui.column(2,ui.input_text_area("eyes","Number Reviewers per Applicant:",3,rows=1))),
     ui.output_text_verbatim("app_rev"),
     ui.output_text_verbatim("rev_app")
 )
