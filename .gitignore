@@ -1,6 +1,3 @@
-rr_shiny_app/*.pyc
-rr_shiny_app/__pycache__/*
-*.pyc
 .Rhistory
 .Rproj.user
 .ipynb_checkpoints/
