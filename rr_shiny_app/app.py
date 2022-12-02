@@ -31,10 +31,9 @@ Ryan Reynolds""",rows=20)),
 ## Print/save results             ##
 ## ------------------------------ ##
 def server(input, output, session):
-
-    @output
-    @render.text
-    def app_rev():
+    
+    @reactive.Calc
+    def assignment():
         reviewers = input.reviewers()
         applicants = input.applicants()
         eyes = int(input.eyes())
@@ -43,9 +42,15 @@ def server(input, output, session):
         while attempt == False:
             attempt = assign_reviewer(reviewers, applicants, eyes)
         applicant_dict, reviewer_dict = attempt
+        return(applicant_dict, reviewer_dict)
+
+    @output
+    @render.text
+    def app_rev():
+
+        applicant_dict = assignment()[0]
 
         result = "Applicant\tReviewers"
-        i = 0
         for applicant in applicant_dict:
             result += "\n" + applicant + "\t"
             for reviewer in applicant_dict[applicant]:
@@ -56,6 +61,15 @@ def server(input, output, session):
     @output
     @render.text
     def rev_app():
-        return(app_rev().result)
+
+        reviewer_dict = assignment()[1]
+
+        result = ""
+        for reviewer in reviewer_dict:
+            result += reviewer + "\n"
+            for applicant in reviewer_dict[reviewer]:
+                result += "\t" + applicant + "\n"
+
+        return(result)
 
 app = App(app_ui, server)
