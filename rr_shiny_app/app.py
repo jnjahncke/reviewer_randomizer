@@ -7,6 +7,7 @@
 from shiny import App, Inputs, Outputs, Session, reactive, render, req, ui
 from random import randrange
 from math import floor
+import pandas as pd
 import re
 from reviewer_randomizer import *
 
@@ -23,7 +24,7 @@ Jennifer Jahncke\tStudent""",rows=20)),
 Taylor Swift
 Ryan Reynolds""",rows=20)),
         ui.column(2,ui.input_text_area("eyes","Number of Reviewers per Applicant:",3,rows=1))),
-    ui.output_text_verbatim("app_rev"),
+    ui.output_table("app_rev"),
     ui.output_text_verbatim("rev_app")
 )
 
@@ -45,18 +46,22 @@ def server(input, output, session):
         return(applicant_dict, reviewer_dict)
 
     @output
-    @render.text
+    @render.table
     def app_rev():
-
+        
         applicant_dict = assignment()[0]
+        eyes = int(input.eyes())
 
-        result = "Applicant\tReviewers"
-        for applicant in applicant_dict:
-            result += "\n" + applicant + "\t"
-            for reviewer in applicant_dict[applicant]:
-                result += reviewer + "\t"
+        students = list(applicant_dict.keys())
 
-        return(result)
+        revs = ["Reviewer "] * eyes
+        nums = [str(x) for x in range(1,eyes+1)]
+        rev_names = [x+y for x,y in zip(revs,nums)]
+
+        df1 = pd.DataFrame(applicant_dict.items(),
+                columns = ["Applicant", "Reviewers"])
+
+        return(df1)
     
     @output
     @render.text
