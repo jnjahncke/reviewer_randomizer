@@ -35,13 +35,27 @@ def server(input, output, session):
     @output
     @render.text
     def app_rev():
-        applicants = input.applicants().split("\n")
-        return(applicants)
+        reviewers = input.reviewers()
+        applicants = input.applicants()
+        eyes = int(input.eyes())
+
+        attempt = False
+        while attempt == False:
+            attempt = assign_reviewer(reviewers, applicants, eyes)
+        applicant_dict, reviewer_dict = attempt
+
+        result = "Applicant\tReviewers"
+        i = 0
+        for applicant in applicant_dict:
+            result += "\n" + applicant + "\t"
+            for reviewer in applicant_dict[applicant]:
+                result += reviewer + "\t"
+
+        return(result)
     
     @output
     @render.text
     def rev_app():
-        reviewers = input.reviewers().split("\n")
-        return([x.replace("\t"," ") for x in reviewers])
+        return(app_rev().result)
 
 app = App(app_ui, server)
