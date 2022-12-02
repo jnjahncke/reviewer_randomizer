@@ -58,10 +58,18 @@ def server(input, output, session):
         nums = [str(x) for x in range(1,eyes+1)]
         rev_names = [x+y for x,y in zip(revs,nums)]
 
-        df1 = pd.DataFrame(applicant_dict.items(),
-                columns = ["Applicant", "Reviewers"])
+        col_name_dict = {}
+        for x in range(eyes):
+            col_name_dict[x] = rev_names[x]
 
-        return(df1)
+        result = pd.DataFrame(applicant_dict.items(),
+                columns = ["Applicant", "Reviewers"])
+        result = pd.concat([result, pd.DataFrame(result.Reviewers.tolist())],
+                axis = 1)
+        result = result.rename(col_name_dict, axis=1)
+        result = result.drop(labels="Reviewers", axis=1)
+
+        return(result)
     
     @output
     @render.text
