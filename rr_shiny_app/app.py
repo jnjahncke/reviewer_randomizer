@@ -24,6 +24,7 @@ Jennifer Jahncke\tStudent""",rows=20)),
 Taylor Swift
 Ryan Reynolds""",rows=20)),
         ui.column(2,ui.input_text_area("eyes","Number of Reviewers per Applicant:",3,rows=1))),
+    ui.input_action_button("go", "Go!", class_="btn-success"),
     ui.output_table("app_rev"),
     ui.output_text_verbatim("rev_app")
 )
@@ -34,6 +35,7 @@ Ryan Reynolds""",rows=20)),
 def server(input, output, session):
     
     @reactive.Calc
+    @reactive.event(lambda: input.go(), ignore_none=False)
     def assignment():
         reviewers = input.reviewers()
         applicants = input.applicants()
