@@ -45,19 +45,20 @@ Ansgar	Karl
 Stanislava	Ivankov"""
 applicants = applicants.replace("\t", " ").split("\n")
 
-## ---------------------------- ##
-## Calculate assignment lengths ##
-## ---------------------------- ##
-reviewer_num = len(reviewers)
-applicant_num = len(applicants)
-min_num = floor(applicant_num * eyes / reviewer_num)
-remainder = (applicant_num * eyes) % reviewer_num
-# how many reviewers will be assigned the max_num, how many min_num?
-assign_max = remainder
-assign_min = reviewer_num - remainder
-
 
 def assign_reviewer():
+
+    ## ---------------------------- ##
+    ## Calculate assignment lengths ##
+    ## ---------------------------- ##
+    reviewer_num = len(reviewers)
+    applicant_num = len(applicants)
+    min_num = floor(applicant_num * eyes / reviewer_num)
+    remainder = (applicant_num * eyes) % reviewer_num
+    # how many reviewers will be assigned the max_num, how many min_num?
+    assign_max = remainder
+    assign_min = reviewer_num - remainder
+    
     ## ---------------------------- ##
     ## Build up empty lists/dicts   ##
     ## ---------------------------- ##
@@ -80,16 +81,11 @@ def assign_reviewer():
                 faculty_list.append(found.group(1).rstrip())
             else:
                 trainee_list.append(found.group(1).rstrip())
-            # assign to either max_list or min_list
-            list_assign = randrange(2)
-            if list_assign == 0 and len(min_list) >= assign_min:
-                list_assign = 1
-            elif list_assign == 1 and len(max_list) >= assign_max:
-                list_assign = 0
-            if list_assign == 0:
-                min_list.append(found.group(1).rstrip())
-            elif list_assign == 1:
-                max_list.append(found.group(1).rstrip())
+
+    # assign reviewer to either be assigned the max or min number of applicants
+    # based on calculations above
+    max_list = reviewer_list[:assign_max]
+    min_list = reviewer_list[assign_max:]
 
     applicant_dict = {} # keep a list of each reviewer assigned to each applicant
     applicant_counts = {} # keep track of how many reviewers have been assigned
@@ -116,7 +112,10 @@ def assign_reviewer():
                 i += 1
                 temp = applicants[randrange(applicant_num)]
                 if i > applicant_num * len(trainee_list) * eyes * 1000:
-                   return(False) 
+                   return(False)
+            if applicant_counts[temp] == eyes:
+                applicants.remove(temp)
+                applicant_num = len(applicants)
             rev_list.append(temp)
             applicant_counts[temp] += 1
             reviewer_counts[trainee] += 1
@@ -139,6 +138,9 @@ def assign_reviewer():
                 temp = applicants[randrange(applicant_num)]
                 if i > applicant_num * len(reviewer_list) * eyes * 1000:
                    return(False)
+            if applicant_counts[temp] == eyes:
+                applicants.remove(temp)
+                applicant_num = len(applicants)
             rev_list.append(temp)
             applicant_counts[temp] += 1
             reviewer_counts[faculty] += 1
