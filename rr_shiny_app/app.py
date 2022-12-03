@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-
-
 ## ---------------------------- ##
 ## Load packages                ##
 ## ---------------------------- ##
@@ -9,7 +6,6 @@ from random import randrange
 from math import floor
 import pandas as pd
 import re
-import jinja2
 from reviewer_randomizer import *
 
 ## ---------------------------- ##
