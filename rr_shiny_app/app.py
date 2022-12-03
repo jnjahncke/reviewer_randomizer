@@ -17,6 +17,7 @@ from reviewer_randomizer import *
 ## ---------------------------- ##
 app_ui = ui.page_fixed(
     ui.h2("Reviewer Randomizer"),
+    ui.p("Enter a list of reviewers (and their role), a list of applicants, and the number of reviewers to be assigned to each applicant. Applicants will be randomly assigned such that they only have at maximum one non-faculty reviewer."),
     ui.row(
         ui.column(5,ui.input_text_area("reviewers","Reviewers:","""Kevin Wright\tFaculty
 Kelly Monk\tFaculty
@@ -25,6 +26,7 @@ Jennifer Jahncke\tStudent""",rows=20)),
 Taylor Swift
 Ryan Reynolds""",rows=20)),
         ui.column(2,ui.input_text_area("eyes","Number of Reviewers per Applicant:",3,rows=1))),
+    ui.p("FYI: This can take a few minutes."),
     ui.input_action_button("go", "Go!", class_="btn-success"),
     ui.output_table("app_rev"),
     ui.output_text_verbatim("rev_app")
