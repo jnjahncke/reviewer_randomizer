@@ -2,7 +2,7 @@
 
 This script takes in a list of applicants, a list of reviewers, and the number of people to be assigned to each applicant. Reviewers are then randomly assigned to the applicants. Reviewers can be either faculty or non-faculty ("trainees"). Only one non-faculty reviewer can be assigned to each applicant at maximum. 
 
-There are multiple ways to run this code. Fair warning that for longer lists of applicants it can take a *while* to run. (Like....20 minutes. Make a coffee.)
+There are multiple ways to run this code. Fair warning that for longer lists of applicants it can take a *while* to run. (It could take 1 minute it could take 20 minutes. Make a coffee.)
 
 ## Running on Shinylive
 
