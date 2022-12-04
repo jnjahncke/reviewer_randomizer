@@ -1,7 +1,7 @@
 ## ---------------------------- ##
 ## Load packages                ##
 ## ---------------------------- ##
-from shiny import App, Inputs, Outputs, Session, reactive, render, req, ui
+from shiny import * 
 from random import randrange
 from math import floor
 import pandas as pd

@@ -1,1 +1,3 @@
+shiny
 jinja2
+pandas
