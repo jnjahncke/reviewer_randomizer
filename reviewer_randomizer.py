@@ -111,7 +111,7 @@ def assign_reviewer():
             while temp in rev_list or applicant_counts[temp] != 0:
                 i += 1
                 temp = applicants[randrange(applicant_num)]
-                if i > applicant_num * len(trainee_list) * eyes * 1000:
+                if i > applicant_num * len(trainee_list) * eyes * 10:
                    return(False)
             if applicant_counts[temp] == eyes:
                 applicants.remove(temp)
@@ -136,7 +136,7 @@ def assign_reviewer():
             while temp in rev_list or applicant_counts[temp] == eyes:
                 i += 1
                 temp = applicants[randrange(applicant_num)]
-                if i > applicant_num * len(reviewer_list) * eyes * 1000:
+                if i > applicant_num * len(reviewer_list) * eyes * 10:
                    return(False)
             if applicant_counts[temp] == eyes:
                 applicants.remove(temp)
