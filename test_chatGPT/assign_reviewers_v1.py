@@ -39,9 +39,9 @@ def assign_reviewers(reviewers, applicants, num_reviewers_per_applicant):
     df = pd.DataFrame({
         'Applicant': applicants,
         **{f'Reviewer {i}': [assigned_reviewers[applicant][i] for applicant in applicants] for i in range(num_reviewers_per_applicant)}
-    })
+     })
 
-    # write the dataframe to a CSV file
+    write the dataframe to a CSV file
     df.to_csv('assignment.csv', index=False)
 
     # print the text output
