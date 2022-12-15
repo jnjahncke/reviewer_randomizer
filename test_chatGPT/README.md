@@ -1,4 +1,4 @@
-Here's an example of how you could use the functions:
+Here's how ChatGPT says you could use the functions:
 
 ```
 reviewers = {
