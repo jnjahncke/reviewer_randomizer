@@ -35,4 +35,6 @@ Two output tables and one text file are saved: (1) a table of applicants followe
 
 Example output files: [applicants_reviewers.csv](https://github.com/jnjahncke/reviewer_randomizer/blob/main/applicants_reviewers.csv), [reviewer_applicants.csv](https://github.com/jnjahncke/reviewer_randomizer/blob/main/reviewer_applicants.csv), [reviewer_applicants.txt](https://github.com/jnjahncke/reviewer_randomizer/blob/main/reviewer_applicants.txt)
 
+## Running from the command line
+
 The `reviewer_randomizer.py` script can be run from the command line but the script needs to be edited first to change the inputs since they are hard coded.
